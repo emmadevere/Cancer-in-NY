@@ -1,0 +1,33 @@
+library(maps)
+library(RColorBrewer)
+setwd("~/R cancer")
+
+cancer <- read.csv("nyallcancer.csv")
+cancer$combo <- paste(cancer$County, sep=",")
+cancer <- cancer[order(cancer$County),]
+
+colors=brewer.pal(8,"PuBu")
+
+colors = c("#F1EEF6","#D0D1E6",
+          "#A6BDDB", "#74A9CF", "#3690C0",
+          "#0570B0", "#022e49")
+
+cancer$colorBuckets <- as.factor(as.numeric(cut(cancer$Incidence, 
+       c(430,450,470,490,510,530,550,570,590))))
+
+mapnames <- map("county", "new york" ,plot=FALSE)[4]$names
+colorsmatched <- cancer$colorBuckets [na.omit(match(mapnames,
+        cancer$combo))]
+
+par(mar=rep(2.2, 4,4.5,4), oma=rep(.1, 4,4.5,5), las=1)
+
+map("county" ,"new york"
+    ,col = colors[cancer$colorBuckets]
+    ,fill = TRUE
+    ,resolution = 0
+    ,lty = 1
+    ,lwd= 0.2
+    , bg = "gray"
+)
+title(main="Average Annual Cancer Incidence per
+      100,000 People (2007-2011)",cex.main=1.2)
