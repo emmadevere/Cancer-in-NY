@@ -1,0 +1,67 @@
+#Mapping the confidence intervals for the overall cancer incidence data to see if counties with high incidences also 
+#also have wide CIs as they are primarily in rural areas with lower populations
+
+cancer$Lower95ConfidenceInterval
+cancer$confint <- as.factor(cancer$Upper95ConfidenceInterval-
+                              cancer$Lower95ConfidenceInterval)
+
+colors=brewer.pal(7,"Purples")
+cancer$colorBuckets <- as.factor(as.numeric(cut(cancer$confidence, 
+                                c(5,20,35,50,65,80,95,150))))
+
+mapnames <- map("county", "new york" ,plot=FALSE)[4]$names
+colorsmatched <- cancer$colorBuckets [na.omit(match(mapnames,
+                                                    cancer$combo))]
+
+par(mar=rep(2.2, 4,4.5,4), oma=rep(.1, 4,4.5,5), las=1)
+
+map("county" ,"new york"
+    ,col = colors[cancer$colorBuckets]
+    ,fill = TRUE
+    ,resolution = 0
+    ,lty = 1
+    ,lwd= 0.2
+    , bg = "gray"
+)
+
+(sum(cancer$confidence)-147.8)/62
+
+legend.col <- function(col, lev){
+  
+  opar <- par
+  
+  n <- length(col)
+  
+  bx <- par("usr")
+  
+  box.cx <- c(bx[2] + (bx[2] - bx[1]) / 1000,
+              bx[2] + (bx[2] - bx[1]) / 1000 + (bx[2] - bx[1]) / 50)
+  box.cy <- c(bx[3], bx[3])
+  box.sy <- (bx[4] - bx[3]) / n
+  
+  xx <- rep(box.cx, each = 2)
+  
+  par(xpd = TRUE)
+  for(i in 1:n){
+    
+    yy <- c(box.cy[1] + (box.sy * (i - 1)),
+            box.cy[1] + (box.sy * (i)),
+            box.cy[1] + (box.sy * (i)),
+            box.cy[1] + (box.sy * (i - 1)))
+    polygon(xx, yy, col = col[i], border = col[i])
+    
+  }
+  par(new = TRUE)
+  plot(0, 0, type = "n",
+       ylim = c(min(lev), max(lev)),
+       yaxt = "n", ylab = "",
+       xaxt = "n", xlab = "",
+       frame.plot = FALSE)
+  axis(side = 4, las = 2, tick = FALSE, line = .25,
+       at =c(3,23,45,67,88,110,131,153), 
+       labels =c(5,20,35,50,65,80,95,150), 
+       cex.axis=.75)
+  par <- opar
+}
+
+legend.col(col = colors , lev = cancer$confidence)
