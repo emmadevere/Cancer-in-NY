@@ -1,0 +1,24 @@
+library(maps)
+library(RColorBrewer)
+
+cancer <- read.csv("nymelanoma.csv")
+cancer$combo <- paste(cancer$County, sep=",")
+cancer <- cancer[order(cancer$County),]
+
+colors = brewer.pal(6, "Reds")
+cancer$colorBuckets <- as.factor(as.numeric(cut(cancer$Incidence, c(0,5,10,15,20,25,30))))
+
+mapnames <- map("county", "new york" ,plot=FALSE)[4]$names
+colorsmatched <- cancer$colorBuckets [na.omit(match(mapnames, cancer$combo))]
+
+par(mar=rep(2.2, 4,4.5,4), oma=rep(.1, 4,4.5,5), las=1)
+
+map("county" ,"new york"
+    ,col = colors[cancer$colorBuckets]
+    ,fill = TRUE
+    ,resolution = 0
+    ,lty = 1
+    ,lwd= 0.2
+    , bg = "gray"
+)
+title(main="Average Annual Melanoma Incidence per 100,000 People (2007-2011)",cex.main=1.2)
