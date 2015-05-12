@@ -1,0 +1,21 @@
+#CORRELATION OF .5 OR GREATER IS HIGHLIGHTED
+
+install.packages("gclus")
+library("gclus")
+
+base <- rbind(na.omit(my.dat2[,c(2:4,6:21,25:26,39,28)]))
+base.r <- abs(cor(base))
+base.color <- dmat.color(base.r, byrank=F, breaks=c(0,.5,1),
+                         colors=c("ivory2","khaki1"))
+
+cpairs(base,panel.color = base.color,gap = .5, pch=19, cex.labels=2)
+
+#P VALUE OF LESS THAN .05 IS HIGHLIGHTED
+
+library("qdapTools")
+out <- v_outer((na.omit(my.dat2[,c(2:4,6:21,25:26,39,28)])), 
+                function(x, y) cor.test(x, y)[["p.value"]])
+base.color <- dmat.color(out, byrank=F, breaks=c(0,.049,1),
+                         colors=c("khaki1", "ivory2"))
+
+cpairs(base,panel.color = base.color,gap = .5, pch=19, cex.labels=2)
