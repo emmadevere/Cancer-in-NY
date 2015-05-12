@@ -1,0 +1,186 @@
+#Bladder, colorectal, esophagus, liver, and lung cancer paths
+
+library("lavaan")
+library("semPlot")
+
+par(bg="white", cex.main=2)
+
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(11,39,27,28)])
+
+model <- '
+#regression
+Lung ~ MedianIncome
+Lung ~ Smoking
+Lung ~ Obesity
+Lung ~ BingeDrinking
+#residual correlations
+MedianIncome ~~ Smoking
+Smoking ~~ Obesity
+Smoking ~~ BingeDrinking
+BingeDrinking ~~ MedianIncome
+BingeDrinking ~~ Obesity
+MedianIncome ~~ Obesity
+
+'
+
+fit <- lavaan::sem(model, data = my.dat2)
+
+# Plot path diagram:
+semPaths(fit,"std", style= "lisrel",
+         layout = "tree", nCharNodes=0,sizeMan=13, shapeMan="ellipse",
+         sizeMan2=5, edge.label.cex=.8, label.cex=1.6, 
+         label.norm ="OOO", label.scale=F,
+         residScale=-5, border.color=NULL, rotation=4, 
+         posCol="dodgerblue4", negCol="firebrick", curvature =5,
+         borders=F, color="ivory2")
+title(main="Lung Cancer Path Diagram")
+
+#BLADDER
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(2,39,27,28)])
+
+model <- '
+#regression
+Bladder ~ MedianIncome
+Bladder ~ Smoking
+Bladder ~ Obesity
+Bladder ~ BingeDrinking
+#residual correlations
+MedianIncome ~~ Smoking
+Smoking ~~ Obesity
+Smoking ~~ BingeDrinking
+BingeDrinking ~~ MedianIncome
+BingeDrinking ~~ Obesity
+MedianIncome ~~ Obesity
+
+'
+
+fit <- lavaan::sem(model, data = my.dat2)
+
+# Plot path diagram:
+semPaths(fit,"std", style= "lisrel",
+         layout = "tree", nCharNodes=0,sizeMan=13, shapeMan="ellipse",
+         sizeMan2=5, edge.label.cex=.8, label.cex=1.6, 
+         label.norm ="OOO", label.scale=F,
+         residScale=-5, border.color=NULL, rotation=4, 
+         posCol="dodgerblue4", negCol="firebrick", curvature =5,
+         borders=F, color="ivory2")
+title(main="Bladder Cancer Path Diagram")
+
+#COLORECTAL
+
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(6,39,27,28)])
+
+model <- '
+#regression
+Colorectal ~ MedianIncome
+Colorectal ~ Smoking
+Colorectal ~ Obesity
+#residual correlations
+MedianIncome ~~ Smoking
+Smoking ~~ Obesity
+MedianIncome ~~ Obesity
+
+'
+
+fit <- lavaan::sem(model, data = my.dat2)
+
+# Plot path diagram:
+semPaths(fit,"std", style= "lisrel",
+         layout = "tree", nCharNodes=0,sizeMan=13, shapeMan="ellipse",
+         sizeMan2=5, edge.label.cex=.8, label.cex=1.6, 
+         label.norm ="OOO", label.scale=F,
+         residScale=-5, border.color=NULL, rotation=4, 
+         posCol="dodgerblue4", negCol="firebrick", curvature =5,
+         borders=F, color="ivory2")
+title(main="Colorectal Cancer Path Diagram")
+
+#ESOPHAGUS
+
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(7,39,27,28)])
+
+model <- '
+#regression
+Esophagus ~ MedianIncome
+Esophagus ~ Smoking
+Esophagus ~ Obesity
+Esophagus ~ BingeDrinking
+#residual correlations
+MedianIncome ~~ Smoking
+Smoking ~~ Obesity
+Smoking ~~ BingeDrinking
+BingeDrinking ~~ MedianIncome
+BingeDrinking ~~ Obesity
+MedianIncome ~~ Obesity
+
+'
+
+fit <- lavaan::sem(model, data = my.dat2)
+
+# Plot path diagram:
+semPaths(fit,"std", style= "lisrel",
+         layout = "tree", nCharNodes=0,sizeMan=13, shapeMan="ellipse",
+         sizeMan2=5, edge.label.cex=.8, label.cex=1.6, 
+         label.norm ="OOO", label.scale=F,
+         residScale=-5, border.color=NULL, rotation=4, 
+         posCol="dodgerblue4", negCol="firebrick", curvature =5,
+         borders=F, color="ivory2")
+title(main="Esophagus Cancer Path Diagram")
+
+#KIDNEY
+
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(8,39,27,28)])
+
+model <- '
+#regression
+Kidney ~ MedianIncome
+Kidney ~ Obesity
+#residual correlations
+MedianIncome ~~ Obesity
+
+'
+
+fit <- lavaan::sem(model, data = my.dat2)
+
+# Plot path diagram:
+semPaths(fit,"std", style= "lisrel",
+         layout = "tree", nCharNodes=0,sizeMan=13, shapeMan="ellipse",
+         sizeMan2=5, edge.label.cex=.8, label.cex=1.6, 
+         label.norm ="OOO", label.scale=F,
+         residScale=-5, border.color=NULL, rotation=4, 
+         posCol="dodgerblue4", negCol="firebrick", curvature =5,
+         borders=F, color="ivory2")
+title(main="Kidney Cancer Path Diagram")
+
+#LIVER BC WHY NOT
+
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(10,39,27,28)])
+
+model <- '
+#regression
+Liver ~ MedianIncome
+Liver ~ Smoking
+Liver ~ BingeDrinking
+#residual correlations
+MedianIncome ~~ Smoking
+Smoking ~~ BingeDrinking
+BingeDrinking ~~ MedianIncome
+
+'
+
+fit <- lavaan::sem(model, data = my.dat2)
+
+# Plot path diagram:
+semPaths(fit,"std", style= "lisrel",
+         layout = "tree", nCharNodes=0,sizeMan=13, shapeMan="ellipse",
+         sizeMan2=5, edge.label.cex=.8, label.cex=1.6, 
+         label.norm ="OOO", label.scale=F,
+         residScale=-5, border.color=NULL, rotation=4, 
+         posCol="dodgerblue4", negCol="firebrick", curvature =5,
+         borders=F, color="ivory2")
+title(main="Liver Cancer Path Diagram")
