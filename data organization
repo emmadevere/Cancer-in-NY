@@ -1,0 +1,65 @@
+#Reading data from multiple csv files and creating one master file
+
+bladder.dat <- read.csv("bladder.csv")
+bladder.dat <- bladder.dat[order(bladder.dat$County),]
+my.dat$Bladder <-bladder.dat$Incidence
+
+brain.dat<- read.csv("brain.csv")
+brain.dat <- brain.dat[order(brain.dat$County)]
+my.dat$Brain <- brain.dat$Incidence   
+
+esophagus.dat <- read.csv("esophagus.csv")
+esophagus.dat <- esophagus.dat[order(esophagus.dat$County)]
+my.dat$Esophagus <- esophagus.dat$Incidence
+
+kidney.dat<- read.csv("kidney.csv")
+kidney.dat <- kidney.dat[order(kidney.dat$County)]
+my.dat$Kidney <- kidney.dat$Incidence
+
+leukemia.dat <- read.csv("leukemia.csv")
+leukemia.dat <- leukemia.dat[order(leukemia.dat$County)]
+my.dat$Leukemia <- leukemia.dat$Incidence
+
+liver.dat <- read.csv("liver.csv")
+liver.dat <- liver.dat[order(liver.dat$County)]
+my.dat$Liver <- liver.dat$Incidence
+
+lung.dat <- read.csv("lung.csv")
+lung.dat <- lung.dat[order(lung.dat$County)]
+my.dat$Lung <- lung.dat$Incidence
+
+melanoma.dat <- read.csv("melanoma.csv")
+melanoma.dat <- melanoma.dat[order(melanoma.dat$County)]
+my.dat$Melanoma <- melanoma.dat$Incidence
+
+nhlymphoma.dat <- read.csv("nhlymphoma.csv")
+nhlymphoma.dat <- nhlymphoma.dat[order(nhlymphoma$County)]
+my.dat$Lymphoma <- nhlymphoma$Incidence
+
+ocp.dat <- read.csv("oralcavitypharynx.csv")
+ocp.dat <- ocp.dat[order(ocp.dat$County)]
+my.dat$OralPharynx <- ocp.dat$Incidence
+
+ovary.dat <- read.csv("ovary.csv")
+ovary.dat <- ovary.dat [order(ovary.dat$County)]
+my.dat$Ovary <- ovary.dat$Incidence
+
+pancreas.dat <- read.csv("pancreas.csv")
+pancreas.dat <- pancreas.dat[order(pancreas.dat$County)]
+my.dat$Pancreas <- pancreas.dat$Incidence
+
+prostate.dat <- read.csv("prostate.csv")
+prostate.dat <- prostate.dat[order(prostate.dat$County)]
+my.dat$Prostate <- prostate.dat$Incidence
+
+stomach.dat <- read.csv("stomach.csv")
+stomach.dat <- stomach.dat[order(stomach.dat$County)]
+my.dat$Stomach <- stomach.dat$Incidence
+
+thyroid.dat <- read.csv("thyroid.csv")
+thyroid.dat <- thyroid.dat[order(thyroid.dat$County)]
+my.dat$Thyroid <- thyroid.dat$Incidence
+
+uterus.dat <- read,csv("uterus.csv")
+uterus.dat <- uterus.dat[order(uterus.dat$County)]
+my.dat$Uterus <- uterus.dat$Incidence
