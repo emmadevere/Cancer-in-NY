@@ -1,0 +1,130 @@
+#Plots from scatterplot matrix that are relevant to the created path diagrams
+
+par(mar=c(5.1, 4.1, 2.1, 2.1))
+#LUNG
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(11,39,27,28)])
+
+plot(my.dat2$MedianIncome, my.dat2$Lung, xlab="Median Income", 
+     ylab = '', pch=19, cex=1.2, cex.lab=1.6)
+mtext("Lung Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Smoking, my.dat2$Lung, xlab="Percentage of Adult Smokers",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Lung Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Obesity, my.dat2$Lung, xlab="Percentage of Obese Adults",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Lung Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$BingeDrinking, my.dat2$Lung, 
+     xlab="Percentage of Adult Binge Drinkers",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Lung Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+#BLADDER
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(2,39,27,28)])
+
+plot(my.dat2$MedianIncome, my.dat2$Bladder, xlab="Median Income", 
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Bladder Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Smoking, my.dat2$Bladder, xlab="Percentage of Adult Smokers",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Bladder Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Obesity, my.dat2$Bladder, xlab="Percentage of Obese Adults",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Bladder Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$BingeDrinking, my.dat2$Bladder, 
+     xlab="Percentage of Adult Binge Drinkers",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Bladder Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+#COLORECTAL
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(6,39,27,28)])
+
+plot(my.dat2$MedianIncome, my.dat2$Colorectal, xlab="Median Income", 
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Colorectal Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Smoking, my.dat2$Colorectal, xlab="Percentage of Adult Smokers",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Colorectal Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Obesity, my.dat2$Colorectal, xlab="Percentage of Obese Adults",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Colorectal Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+#ESOPHAGUS
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(7,39,27,28)])
+
+plot(my.dat2$MedianIncome, my.dat2$Esophagus, xlab="Median Income", 
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Esophagus Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Smoking, my.dat2$Esophagus, xlab="Percentage of Adult Smokers",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Esophagus Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Obesity, my.dat2$Esophagus, xlab="Percentage of Obese Adults",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Esophagus Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$BingeDrinking, my.dat2$Esophagus, 
+     xlab="Percentage of Adult Binge Drinkers",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Esophagus Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+#KIDNEY
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(8,39,27,28)])
+
+plot(my.dat2$MedianIncome, my.dat2$Kidney, xlab="Median Income", 
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Kidney Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Obesity, my.dat2$Kidney, xlab="Percentage of Obese Adults",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Kidney Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+#LIVER
+my.dat2 <- read.csv("directedstudy2.csv")
+na.omit(my.dat2[,c(10,39,27,28)])
+
+plot(my.dat2$MedianIncome, my.dat2$Liver, xlab="Median Income", 
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Liver Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$Smoking, my.dat2$Liver, xlab="Percentage of Adult Smokers",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Liver Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
+plot(my.dat2$BingeDrinking, my.dat2$Liver, 
+     xlab="Percentage of Adult Binge Drinkers",
+      pch=19,
+     cex=1.2, cex.lab=1.6)
+mtext("Liver Cancer Incidence \n (per 100,000 People)" ,
+      side=2, line=3, cex=1.2)
